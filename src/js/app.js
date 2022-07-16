@@ -1,4 +1,3 @@
-
 const object = {
   name: "мечник",
   health: 10,
@@ -21,11 +20,13 @@ const orderByProps = (obj, sortKeys) => {
       value: obj[prop],
     };
   });
-  return result
+  return result;
 };
 
-const result = orderByProps(object, ["name", "level"]);
-console.log(result); // ->
+export { orderByProps };
+
+//const result = orderByProps(object, ["name", "level"]);
+//console.log(result); // ->
 //  [
 //    {key: "name", value: "мечник"}, // порядок взят из массива с ключами
 //    {key: "level", value: 2}, // порядок взят из массива с ключами
