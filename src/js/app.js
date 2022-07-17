@@ -1,32 +1,31 @@
-const object = {
-  name: "мечник",
+/* const object = {
+  name: 'мечник',
   health: 10,
   level: 2,
   attack: 80,
   defence: 40,
-};
+}; */
 
 const orderByProps = (obj, sortKeys) => {
-  var keys = [];
+  const keys = [];
   for (const prop in obj) {
+    // eslint-disable-next-line no-prototype-builtins
     if (obj.hasOwnProperty(prop)) {
       keys.push(prop);
     }
   }
   const tail = keys.filter((el) => !sortKeys.includes(el)).sort();
-  const result = sortKeys.concat(tail).map((prop) => {
-    return {
-      key: prop,
-      value: obj[prop],
-    };
-  });
+  const result = sortKeys.concat(tail).map((prop) => ({
+    key: prop,
+    value: obj[prop],
+  }));
   return result;
 };
 
-export { orderByProps };
+export default orderByProps;
 
-//const result = orderByProps(object, ["name", "level"]);
-//console.log(result); // ->
+// const result = orderByProps(object, ["name", "level"]);
+// console.log(result); // ->
 //  [
 //    {key: "name", value: "мечник"}, // порядок взят из массива с ключами
 //    {key: "level", value: 2}, // порядок взят из массива с ключами
